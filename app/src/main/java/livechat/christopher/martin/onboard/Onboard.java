@@ -31,7 +31,7 @@ public class Onboard extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
         setContentView(R.layout.activity_onboard);
 
-        layouts = new int[]{R.layout.onboard_fragment, R.layout.onboard_fragment};
+        layouts = new int[]{R.layout.onboard_fragment, R.layout.onboard_fragment, R.layout.onboard_fragment};
 
         wdi = findViewById(R.id.onboard_worm_dots);
         viewpager2 = findViewById(R.id.onboard_viewpager);
