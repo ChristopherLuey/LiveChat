@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
+import java.util.Objects;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,30 +19,28 @@ import androidx.viewpager2.widget.ViewPager2;
 import livechat.christopher.martin.R;
 
 public class Onboard extends AppCompatActivity {
-    private ViewPagerAdapter adapter;
-    private TextView[] dots;
     private int[] layouts;
-    private ViewPager2 viewpager2;
-    private WormDotsIndicator wdi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
-        getSupportActionBar().hide(); // hide the title bar
+        Objects.requireNonNull(getSupportActionBar()).hide(); // hide the title bar
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
         setContentView(R.layout.activity_onboard);
 
         layouts = new int[]{R.layout.onboard_fragment, R.layout.onboard_fragment, R.layout.onboard_fragment};
 
-        wdi = findViewById(R.id.onboard_worm_dots);
-        viewpager2 = findViewById(R.id.onboard_viewpager);
-        adapter = new ViewPagerAdapter();
+        WormDotsIndicator wdi = findViewById(R.id.onboard_worm_dots);
+        ViewPager2 viewpager2 = findViewById(R.id.onboard_viewpager);
+        ViewPagerAdapter adapter = new ViewPagerAdapter();
         viewpager2.setAdapter(adapter);
         wdi.setViewPager2(viewpager2);
     }
 
     public class ViewPagerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+        private static final String TAG = "VALUE";
 
         public ViewPagerAdapter() {
         }
@@ -54,7 +54,18 @@ public class Onboard extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
+            TextView title = holder.itemView.findViewById(R.id.onboard_title);
+            TextView desc = holder.itemView.findViewById(R.id.onboard_desc);
+            switch (position) {
+                case 0:
+                    title.setText("Welcome to App Name");
+                    desc.setText("Chat with people with similar interests!");
+                    break;
+                case 1:
+                    title.setText("Choose your interests!");
+                    desc.setText("");
+                    break;
+            }
         }
 
         @Override
