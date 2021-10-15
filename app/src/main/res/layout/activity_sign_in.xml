@@ -4,6 +4,105 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signin.SignIn">
+    tools:context=".signin.SignIn"
+    android:background="@drawable/gradient">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/signin_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/container"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/signin_forgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/transparent"
+            android:text="Forgot Password?"
+            android:textAllCaps="false"
+            android:textColor="@color/secondary_text"
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="@id/signin_container"
+            app:layout_constraintTop_toBottomOf="@id/signin_password">
+
+        </Button>
+
+        <Button
+            android:id="@+id/signin_signin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/buttons"
+            android:text="Sign In"
+            android:textAllCaps="false"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/signin_container"
+            app:layout_constraintEnd_toEndOf="@id/signin_container"
+            app:layout_constraintStart_toStartOf="@id/signin_container"
+            app:layout_constraintTop_toBottomOf="@id/signin_forgot_password">
+
+        </Button>
+
+        <EditText
+            android:id="@+id/signin_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_text"
+            android:ems="10"
+            android:hint="@string/prompt_email"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="@id/signin_container"
+            app:layout_constraintStart_toStartOf="@id/signin_container"
+            app:layout_constraintTop_toBottomOf="@id/signin_title" />
+
+        <EditText
+            android:id="@+id/signin_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_text"
+            android:ems="10"
+            android:hint="@string/prompt_password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="@id/signin_container"
+            app:layout_constraintStart_toStartOf="@id/signin_container"
+            app:layout_constraintTop_toBottomOf="@id/signin_email">
+
+        </EditText>
+
+        <TextView
+            android:id="@+id/signin_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Sign In"
+            android:textColor="@color/secondary_text"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="@id/signin_container"
+            app:layout_constraintStart_toStartOf="@id/signin_container"
+            app:layout_constraintTop_toTopOf="@id/signin_container">
+
+        </TextView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
