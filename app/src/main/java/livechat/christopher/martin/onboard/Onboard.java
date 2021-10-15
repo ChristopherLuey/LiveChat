@@ -1,5 +1,6 @@
 package livechat.christopher.martin.onboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 import livechat.christopher.martin.R;
+import livechat.christopher.martin.signup.SignUp;
 
 public class Onboard extends AppCompatActivity {
     private int[] layouts;
@@ -36,6 +38,11 @@ public class Onboard extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter();
         viewpager2.setAdapter(adapter);
         wdi.setViewPager2(viewpager2);
+    }
+
+    public void signup(View view) {
+        Intent intent = new Intent(this, SignUp.class);
+        startActivity(intent);
     }
 
     public class ViewPagerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
