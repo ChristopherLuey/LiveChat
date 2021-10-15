@@ -70,9 +70,13 @@ public class Onboard extends AppCompatActivity {
                     break;
                 case 1:
                     title.setText("Choose your interests!");
-                    desc.setText("");
+                    desc.setText("IDK");
                     break;
+                case 2:
+                    title.setText("We can change these");
+                    desc.setText("we can also change the colors etc. add images, add more slides this is for u to change");
             }
+
         }
 
         @Override
@@ -86,7 +90,6 @@ public class Onboard extends AppCompatActivity {
         }
 
         public class SliderViewHolder extends RecyclerView.ViewHolder {
-            public TextView title, year, genre;
 
             public SliderViewHolder(View view) {
                 super(view);
