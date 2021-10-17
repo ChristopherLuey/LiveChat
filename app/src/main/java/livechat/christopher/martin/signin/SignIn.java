@@ -10,6 +10,9 @@ import java.util.Objects;
 
 import livechat.christopher.martin.R;
 
+import com.google.firebase.auth.FirebaseAuth;
+
+
 public class SignIn extends AppCompatActivity {
 
     @Override
@@ -19,5 +22,13 @@ public class SignIn extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide(); // hide the title bar
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
         setContentView(R.layout.activity_sign_in);
+    }
+
+    public void forgotPassword(View view) {
+
+    }
+
+    public void signin_signin(View view) {
+
     }
 }
