@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "287370080750",
+    "project_id": "livechat-ef093",
+    "storage_bucket": "livechat-ef093.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:287370080750:android:245795817680f7daf69eff",
+        "android_client_info": {
+          "package_name": "livechat.christopher.martin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "287370080750-411es0oauvlssklub3shpvsb21tpvcej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiuBFOuw1y_LqvovHSKhYpSdIH8SjQ2Tw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "287370080750-411es0oauvlssklub3shpvsb21tpvcej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
