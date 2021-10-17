@@ -22,11 +22,15 @@ import livechat.christopher.martin.BuildConfig;
 import livechat.christopher.martin.R;
 import livechat.christopher.martin.signup.SignUp;
 
+
 public class Onboard extends AppCompatActivity {
+
+
     private int[] layouts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        checkFirstRun();
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
         Objects.requireNonNull(getSupportActionBar()).hide(); // hide the title bar
@@ -40,6 +44,8 @@ public class Onboard extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter();
         viewpager2.setAdapter(adapter);
         wdi.setViewPager2(viewpager2);
+
+
     }
 
     public void signup(View view) {
@@ -116,6 +122,7 @@ public class Onboard extends AppCompatActivity {
         if (currentVersionCode == savedVersionCode) {
 
             // This is just a normal run
+            startActivity(new Intent(this, SignIn.class)
             return;
 
         } else if (savedVersionCode == DOESNT_EXIST) {
@@ -123,7 +130,7 @@ public class Onboard extends AppCompatActivity {
             // TODO This is a new install (or the user cleared the shared preferences)
 
         } else if (currentVersionCode > savedVersionCode) {
-
+            startActivity(new Intent(this, SignIn.class)
             // TODO This is an upgrade
         }
 
