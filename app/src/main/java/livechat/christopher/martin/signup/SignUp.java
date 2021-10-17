@@ -48,35 +48,47 @@ public class SignUp extends AppCompatActivity {
         String password = editText_password.getText().toString();
         String password_retype = editText_password_retype.getText().toString();
 
-        if (email.isEmpty()) {
-            editText_email.setError("Provide your Email!");
-            editText_email.requestFocus();
-        } else if (password.isEmpty()) {
-            editText_password.setError("Set your Password!");
-            editText_password.requestFocus();
-        } else if (password_retype.isEmpty()) {
-            editText_password_retype.setError("Retype your Password!");
-            editText_password_retype.requestFocus();
-        } else {
-            if (password_retype.equals(password)) {
-                fbauth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(SignUp.this, new OnCompleteListener() {
-                    @Override
-                    public void onComplete(Task task) {
-                        if (task == null) {
-                            return;
-                        }
+        if (password_retype.isEmpty() || password.isEmpty() || email.isEmpty()) {
 
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(SignUp.this.getApplicationContext(),
-                                    "Sign Up Unsuccessful: " + task.getException().getMessage(),
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
-                            startActivity(new Intent(SignUp.this, SignIn.class));
+            if (password_retype.isEmpty()) {
+                editText_password_retype.setError("Retype your Password");
+                editText_password_retype.requestFocus();
+            }
+            if (password.isEmpty()) {
+                editText_password.setError("Set your Password");
+                editText_password.requestFocus();
+            }
+
+            if (email.isEmpty()) {
+                editText_email.setError("Provide your Email");
+                editText_email.requestFocus();
+            }
+        }
+        else {
+            if (password_retype.equals(password)) {
+                if (checkBox_signup.isChecked()) {
+                    fbauth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(SignUp.this, new OnCompleteListener() {
+                        @Override
+                        public void onComplete(Task task) {
+                            if (task == null) {
+                                return;
+                            }
+
+                            if (!task.isSuccessful()) {
+                                Toast.makeText(SignUp.this.getApplicationContext(),
+                                        "Sign Up Unsuccessful: " + task.getException().getMessage(),
+                                        Toast.LENGTH_SHORT).show();
+                            } else {
+                                startActivity(new Intent(SignUp.this, SignIn.class));
+                            }
                         }
-                    }
-                });
+                    });
+                } else {
+                    Toast.makeText(SignUp.this, "Please Accept the Terms of Service", Toast.LENGTH_SHORT).show();
+                }
             } else {
-                Toast.makeText(SignUp.this, "Passwords Don't Match", Toast.LENGTH_SHORT).show();
+                editText_password_retype.setError("Passwords Don't Match");
+                editText_password_retype.requestFocus();
             }
         }
 
