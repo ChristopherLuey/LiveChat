@@ -73,10 +73,9 @@ public class SignUp extends AppCompatActivity {
                             if (task == null) {
                                 return;
                             }
-
                             if (!task.isSuccessful()) {
                                 Toast.makeText(SignUp.this.getApplicationContext(),
-                                        "Sign Up Unsuccessful: " + task.getException().getMessage(),
+                                        task.getException().getMessage(),
                                         Toast.LENGTH_SHORT).show();
                             } else {
                                 startActivity(new Intent(SignUp.this, SignIn.class));
