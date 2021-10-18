@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LiveChat">
         <activity
+            android:name=".onboard.Username"
+            android:exported="true" />
+        <activity
             android:name=".signin.ResetPassword"
             android:exported="true" />
         <activity
