@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
+
 import livechat.christopher.martin.BuildConfig;
 import livechat.christopher.martin.R;
 import livechat.christopher.martin.signin.SignIn;
@@ -26,40 +27,33 @@ import livechat.christopher.martin.signup.SignUp;
 
 public class Onboard extends AppCompatActivity {
 
-
     private int[] layouts;
+    WormDotsIndicator wdi;
+    ViewPager2 viewpager2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        checkFirstRun();
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
-        Objects.requireNonNull(getSupportActionBar()).hide(); // hide the title bar
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        Objects.requireNonNull(getSupportActionBar()).hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
         setContentView(R.layout.activity_onboard);
 
         layouts = new int[]{R.layout.onboard_fragment, R.layout.onboard_fragment, R.layout.onboard_fragment};
 
-        WormDotsIndicator wdi = findViewById(R.id.onboard_worm_dots);
-        ViewPager2 viewpager2 = findViewById(R.id.onboard_viewpager);
-        ViewPagerAdapter adapter = new ViewPagerAdapter();
-        viewpager2.setAdapter(adapter);
+        wdi = findViewById(R.id.onboard_worm_dots);
+        viewpager2 = findViewById(R.id.onboard_viewpager);
+        viewpager2.setAdapter(new ViewPagerAdapter());
         wdi.setViewPager2(viewpager2);
-
-
     }
 
-    public void signup(View view) {
-        Intent intent = new Intent(this, SignUp.class);
-        startActivity(intent);
+    public void onClick_signup(View view) {
+        startActivity(new Intent(this, SignUp.class));
     }
 
     public class ViewPagerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-        private static final String TAG = "VALUE";
-
-        public ViewPagerAdapter() {
-        }
+        public ViewPagerAdapter() {}
 
         @NonNull
         @Override
@@ -72,6 +66,7 @@ public class Onboard extends AppCompatActivity {
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             TextView title = holder.itemView.findViewById(R.id.onboard_title);
             TextView desc = holder.itemView.findViewById(R.id.onboard_desc);
+
             switch (position) {
                 case 0:
                     title.setText("Welcome to App Name");
@@ -85,7 +80,6 @@ public class Onboard extends AppCompatActivity {
                     title.setText("We can change these");
                     desc.setText("we can also change the colors etc. add images, add more slides this is for u to change");
             }
-
         }
 
         @Override
@@ -121,21 +115,20 @@ public class Onboard extends AppCompatActivity {
 
         // Check for first run or upgrade
         if (currentVersionCode == savedVersionCode) {
-
-            // This is just a normal run
             startActivity(new Intent(this, SignIn.class));
             return;
 
         } else if (savedVersionCode == DOESNT_EXIST) {
 
-            // TODO This is a new install (or the user cleared the shared preferences)
 
         } else if (currentVersionCode > savedVersionCode) {
             startActivity(new Intent(this, SignIn.class));
-            // TODO This is an upgrade
         }
 
         // Update the shared preferences with the current version code
         prefs.edit().putInt(PREF_VERSION_CODE_KEY, currentVersionCode).apply();
     }
+
+    @Override
+    public void onBackPressed() {}
 }
