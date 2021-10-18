@@ -53,6 +53,6 @@ public class SignIn extends AppCompatActivity {
     }
 
     public void newAccount(View view) {
-        startActivity(new Intent(this, SignUp.class))
+        startActivity(new Intent(this, SignUp.class));
     }
 }

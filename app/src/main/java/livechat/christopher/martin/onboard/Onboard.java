@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 import livechat.christopher.martin.BuildConfig;
 import livechat.christopher.martin.R;
+import livechat.christopher.martin.signin.SignIn;
 import livechat.christopher.martin.signup.SignUp;
 
 
@@ -122,7 +123,7 @@ public class Onboard extends AppCompatActivity {
         if (currentVersionCode == savedVersionCode) {
 
             // This is just a normal run
-            startActivity(new Intent(this, SignIn.class)
+            startActivity(new Intent(this, SignIn.class));
             return;
 
         } else if (savedVersionCode == DOESNT_EXIST) {
@@ -130,7 +131,7 @@ public class Onboard extends AppCompatActivity {
             // TODO This is a new install (or the user cleared the shared preferences)
 
         } else if (currentVersionCode > savedVersionCode) {
-            startActivity(new Intent(this, SignIn.class)
+            startActivity(new Intent(this, SignIn.class));
             // TODO This is an upgrade
         }
 
