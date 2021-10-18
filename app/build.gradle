@@ -29,6 +29,13 @@ android {
     buildFeatures {
         viewBinding true
     }
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src/main/res', 'src/main/res/layouts/onboard', 'src/main/res/layouts/signin', 'src/main/res/layouts/signup'
+            }
+        }
+    }
 }
 
 dependencies {
