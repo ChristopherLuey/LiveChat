@@ -3,7 +3,6 @@ package livechat.christopher.martin.signin;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import livechat.christopher.martin.R;
-import livechat.christopher.martin.signup.SignUp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,7 +31,6 @@ public class ResetPassword extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_reset_password);
-
         editText_email = findViewById(R.id.resetPassword_email);
         fbAuth = FirebaseAuth.getInstance();
 
