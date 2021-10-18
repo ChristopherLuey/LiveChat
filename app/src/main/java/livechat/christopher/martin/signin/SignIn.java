@@ -1,5 +1,6 @@
 package livechat.christopher.martin.signin;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,6 +16,7 @@ import livechat.christopher.martin.onboard.Onboard;
 import livechat.christopher.martin.signup.SignUp;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class SignIn extends AppCompatActivity {
