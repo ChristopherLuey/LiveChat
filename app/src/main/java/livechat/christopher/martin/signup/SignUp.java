@@ -19,6 +19,7 @@ import java.util.Objects;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import livechat.christopher.martin.R;
+import livechat.christopher.martin.onboard.Username;
 import livechat.christopher.martin.signin.SignIn;
 
 public class SignUp extends AppCompatActivity {
@@ -77,7 +78,7 @@ public class SignUp extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                             } else {
                                 // TODO: New Activty
-                                startActivity(new Intent(SignUp.this, SignIn.class));
+                                startActivity(new Intent(SignUp.this, Username.class));
                             }
                         }
                     });
