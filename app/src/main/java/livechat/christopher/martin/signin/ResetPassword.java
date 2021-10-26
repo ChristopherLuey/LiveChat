@@ -39,15 +39,6 @@ public class ResetPassword extends AppCompatActivity {
     @Override
     public void onBackPressed() {}
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser user = fbAuth.getCurrentUser();
-        if (user != null){
-            // TODO New Activity
-        }
-    }
-
     public void onClick_returnSignIn(View view) {
         startActivity(new Intent(this, SignIn.class));
     }

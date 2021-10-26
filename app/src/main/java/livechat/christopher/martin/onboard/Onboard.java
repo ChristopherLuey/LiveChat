@@ -10,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
 import java.util.Objects;
@@ -131,4 +132,10 @@ public class Onboard extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {}
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        //checkFirstRun();
+    }
 }
